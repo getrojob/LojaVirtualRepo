@@ -11,25 +11,55 @@ public class AppDbContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }
 
-    //Fluent Api
-
+    //Fluent API
     protected override void OnModelCreating(ModelBuilder mb)
     {
-        mb.Entity<Product>().HasKey(c => c.Id);
-        mb.Entity<Product>().Property(c => c.Name).HasMaxLength(100).IsRequired();
-        mb.Entity<Product>().Property(c => c.Description).HasMaxLength(150);
-        mb.Entity<Product>().Property(c => c.ImageUrl).HasMaxLength(100);
-        mb.Entity<Product>().Property(c => c.Stock).HasMaxLength(100);
-        mb.Entity<Product>().Property(c => c.Price).HasPrecision(14, 2);
-
+        //category
         mb.Entity<Category>().HasKey(c => c.CategoryId);
-        mb.Entity<Category>().Property(c => c.Name).HasMaxLength(100).IsRequired();
-        mb.Entity<Product>().Property(c => c.Description).HasMaxLength(150).IsRequired();
 
-        mb.Entity<Product>()
-            .HasOne<Category>(c => c.Category)
-            .WithMany(p => p.Products)
-            .HasForeignKey(c => c.CategoryId);
+        mb.Entity<Category>().
+             Property(c => c.Name).
+               HasMaxLength(100).
+                    IsRequired();
+
+        //Product
+        mb.Entity<Product>().
+           Property(c => c.Name).
+             HasMaxLength(100).
+               IsRequired();
+
+        mb.Entity<Product>().
+          Property(c => c.Description).
+               HasMaxLength(255).
+                   IsRequired();
+
+        mb.Entity<Product>().
+          Property(c => c.ImageURL).
+              HasMaxLength(255).
+                  IsRequired();
+
+        mb.Entity<Product>().
+           Property(c => c.Price).
+             HasPrecision(12, 2);
+
+        mb.Entity<Category>()
+          .HasMany(g => g.Products)
+            .WithOne(c => c.Category)
+            .IsRequired()
+              .OnDelete(DeleteBehavior.Cascade);
+
+        mb.Entity<Category>().HasData(
+            new Category
+            {
+                CategoryId = 1,
+                Name = "Material Escolar",
+            },
+            new Category
+            {
+                CategoryId = 2,
+                Name = "Acessórios",
+            }
+        );
     }
 }
 
