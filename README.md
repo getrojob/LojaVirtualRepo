@@ -103,3 +103,8 @@ AutoMapper
 3 - Definir o mapeamento entre os objetos : DTOs e Entidades (Profile) 
 
 4 - Injetar a interface IMapper e fazer o mapeamento
+
+Repository
+
+"O padrão  Repository faz a mediação entre o domínio e as camadas de mapeamento de dados, agindo como uma coleção de objetos de domínio em memória....." Martin Fowler
+
