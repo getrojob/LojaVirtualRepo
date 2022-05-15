@@ -35,6 +35,7 @@ namespace VShop.ProductApi.Services
         {
             var categoriesEntity = _mapper.Map<Category>(categoryDto);
             await _categoryRepository.Create(categoriesEntity);
+            categoryDto.CategoryId = categoriesEntity.CategoryId;
         }
         public async Task UpdateCategory(CategoryDTO categoryDto)
         {
