@@ -108,3 +108,14 @@ Repository
 
 "O padrão  Repository faz a mediação entre o domínio e as camadas de mapeamento de dados, agindo como uma coleção de objetos de domínio em memória....." Martin Fowler
 
+Serviços
+
+Criar a interface e a implementanção para serviço assincrono
+
+- ICategoriyService e CategoryService
+- IProductService e ProductService
+
+Implementação assíncrona retornando DTOs
+
+- IMapper
+- Instância das Repositórios : ICategoryRepository e IProductRepository
