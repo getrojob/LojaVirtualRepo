@@ -1,7 +1,7 @@
 using AutoMapper;
 using VShop.ProductApi.DTOs;
 using VShop.ProductApi.Models;
-using VShop.ProductApi.Models.Repositories;
+using VShop.ProductApi.Repositories;
 
 namespace VShop.ProductApi.Services
 {

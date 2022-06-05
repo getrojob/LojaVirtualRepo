@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using VShop.ProductApi.Context;
-using VShop.ProductApi.Models.Repositories;
+using VShop.ProductApi.Repositories;
 using VShop.ProductApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);

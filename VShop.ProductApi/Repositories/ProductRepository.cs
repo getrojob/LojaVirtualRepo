@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using VShop.ProductApi.Context;
-
-namespace VShop.ProductApi.Models.Repositories
+using VShop.ProductApi.Models;
+namespace VShop.ProductApi.Repositories
 {
     public class ProductRepository : IProductRepository
     {
